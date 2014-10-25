@@ -1,0 +1,36 @@
+<% if notice %>
+<p if = "notice"><% notice %></p>
+<% end %>
+
+<h1> Shop</h1>
+
+<h2> Books: </h2>
+<%= link_to "Manage", "http://sklepikkk.herokuapp.com/products" %>
+<% @products.each do |product| %>
+    <div class="entry">
+      <%= image_tag(product.image_url) %>
+      <h3><%= product.title %></h3>
+      <%= sanitize(product.description) %>
+      <div class="price_line">
+        <span class="price"><%= product.price %></span>
+      </div>
+    </div>
+<% end %>
+
+<h2> Cars:</h2>
+<%= link_to "Manage", "http://sklepikkk.herokuapp.com/cars" %>
+<% @cars.each do |car| %>
+    <div class="entry">
+      <%= image_tag(car.image_url) %>
+      <h3><%= car.model %></h3>
+      <%= sanitize(car.description) %>
+      <div class="price__line">
+        <span class="price"><%= car.price %></span>
+      </div>
+    </div>
+<% end %>
+
+
+
+
+
